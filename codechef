@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+		ll n,m,i,j,s=0,k,l,p=0;
+		cin>>n>>m;
+		vector<ll> vect(m);
+		for(i=0;i<m;i++)
+		{
+			cin>>vect[i];
+		}
+		for(i=0;i<=(m-m%n)-n;i=i+n)
+		{
+			for(j=i;j<i+n;j++)
+			{
+				for(k=j+1;k<i+n;k++)
+				{
+					if(vect[j]==vect[k])
+					{s=1;
+					cout<<"NO\n";
+					break;
+					}
+				}
+				if(s==1)
+				{break;
+				}
+			}
+			if(s==1)
+			{break;
+			}
+		}
+		if(s==0)
+		{
+			for(i=(m-m%n)+1;i<m;i++)
+			{
+				for(j=i+1;j<m;j++)
+				{if(vect[i]==vect[j])
+				{s=1;
+				cout<<"NO\n";
+				break;
+				}
+				}
+				if(s==1)
+				{break;
+				}
+			}
+		}
+		if(s==0)
+		{cout<<"YES\n";
+		}
+	}
+}
